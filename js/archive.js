@@ -91,16 +91,18 @@ function changeEdgeSize() {
 function buildNetwork(s) {
   //Save the initial colors of the nodes and edges
   s.graph.nodes().forEach(function (n) {
+    
     n.originalColor = n.color;
     if (n.attributes.Type == "event") {
       hashList.push(n.label);
+      n.type = "square"
     }
   });
 
   s.graph.edges().forEach(function (e) {
     e.originalColor = e.color;
   });
-
+  CustomShapes.init(s);
   s.refresh();
   //Override initial edge colors
 
@@ -121,6 +123,7 @@ function buildNetwork(s) {
   });
 
   // Refresh the graph to see the changes:
+  CustomShapes.init(s);
   s.refresh();
 
   let flagEvent = [false, 0];
@@ -147,7 +150,8 @@ function buildNetwork(s) {
             n.color = "#DCDB35";
           }
         });
-        s.refresh();
+        CustomShapes.init(s);
+  s.refresh();
       });
 
       ent.addEventListener("mouseout", function () {
@@ -156,7 +160,8 @@ function buildNetwork(s) {
             n.color = n.originalColor;
           }
         });
-        s.refresh();
+        CustomShapes.init(s);
+  s.refresh();
       });
     });
   }
@@ -302,7 +307,8 @@ function buildNetwork(s) {
             { duration: 1000 }
           );
         }
-        s.refresh();
+        CustomShapes.init(s);
+  s.refresh();
       }
     });
 
@@ -333,7 +339,8 @@ function buildNetwork(s) {
     });
 
     //Refresh graph to update colors
-    s.refresh();
+    CustomShapes.init(s);
+  s.refresh();
   });
 
   //Return nodes and edges to original color after mose moves off a node (stops hovering)
@@ -348,7 +355,8 @@ function buildNetwork(s) {
     });
 
     //Refresh graph to update colors
-    s.refresh();
+    CustomShapes.init(s);
+  s.refresh();
   });
 
   //When a node is clicked, check all nodes to see which are neighbors.
@@ -495,7 +503,8 @@ function buildNetwork(s) {
       );
     }
 
-    s.refresh();
+    CustomShapes.init(s);
+  s.refresh();
   });
 
   //When the stage is right-clicked or just clicked, return nodes and edges to original colors
@@ -584,6 +593,7 @@ function buildNetwork(s) {
     flagEvent[1] = null;
   });
 
+  CustomShapes.init(s);
   s.refresh();
 
   //INFO BUTTON
@@ -629,7 +639,7 @@ function animateGraph() {
         defaultLabelBGColor: "rgba(0,0,0,0.5)", //opacità per visibiltà video piccoli
         defaultHoverLabelBGColor: "white",
         defaultLabelHoverColor: "black",
-        animationsTime: 300,
+        animationsTime: 300
       },
     });
 

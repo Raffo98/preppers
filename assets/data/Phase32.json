@@ -350,7 +350,11 @@
         "Description (type 2)": "n/a"
       },
       "color": "rgb(0,189,148)",
-      "size": 3.999098300933838
+      "size": 3.999098300933838,
+      "type": "image",
+      "image" : {
+        "url": "assets/icons/hurricane.svg"
+      }
     },
     {
       "label": "buscopam",
@@ -526,7 +530,11 @@
         "Description (type 2)": "n/a"
       },
       "color": "rgb(0,189,148)",
-      "size": 3.431361675262451
+      "size": 3.431361675262451,
+      "type": "image",
+      "image" : {
+        "url": "assets/icons/hurricane.svg"
+      }
     },
     {
       "label": "sterile fabric",
@@ -590,7 +598,11 @@
         "Description (type 2)": "n/a"
       },
       "color": "rgb(0,189,148)",
-      "size": 4.0
+      "size": 4.0,
+      "type": "image",
+      "image" : {
+        "url": "assets/icons/fire.svg"
+      }
     },
     {
       "label": "dark chocolate",
@@ -1518,7 +1530,11 @@
         "Description (type 2)": "n/a"
       },
       "color": "rgb(0,189,148)",
-      "size": 3.998210906982422
+      "size": 3.998210906982422,
+      "type": "image",
+      "image" : {
+        "url": "assets/icons/social.svg"
+      }
     },
     {
       "label": "topical antiseptic liquid",
@@ -1742,7 +1758,11 @@
         "Description (type 2)": "n/a"
       },
       "color": "rgb(0,189,148)",
-      "size": 3.995467185974121
+      "size": 3.995467185974121,
+      "type": "image",
+      "image" : {
+        "url": "assets/icons/epid.svg"
+      }
     },
     {
       "label": "solar panel",
@@ -1838,7 +1858,11 @@
         "Description (type 2)": "n/a"
       },
       "color": "rgb(0,189,148)",
-      "size": 3.997648239135742
+      "size": 3.997648239135742,
+      "type": "image",
+      "image" : {
+        "url": "assets/icons/nuclearWar.svg"
+      }
     },
     {
       "label": "exploiting holidays for rest",
@@ -2078,7 +2102,11 @@
         "Description (type 2)": "n/a"
       },
       "color": "rgb(0,189,148)",
-      "size": 3.999964714050293
+      "size": 3.999964714050293,
+      "type": "image",
+      "image" : {
+        "url": "assets/icons/earthquake.svg"
+      }
     },
     {
       "label": "antivirus",
@@ -2174,7 +2202,11 @@
         "Description (type 2)": "n/a"
       },
       "color": "rgb(0,189,148)",
-      "size": 4.0
+      "size": 4.0,
+      "type": "image",
+      "image" : {
+        "url": "assets/icons/vulcano.svg"
+      }
     },
     {
       "label": "ffp2 masks",
@@ -2286,7 +2318,11 @@
         "Description (type 2)": "n/a"
       },
       "color": "rgb(0,189,148)",
-      "size": 3.559900999069214
+      "size": 3.559900999069214,
+      "type": "image",
+      "image" : {
+        "url": "assets/icons/hurricane.svg"
+      }
     },
     {
       "label": "hard disk",
@@ -2606,7 +2642,11 @@
         "Description (type 2)": "n/a"
       },
       "color": "rgb(0,189,148)",
-      "size": 3.9488587379455566
+      "size": 3.9488587379455566,
+      "type": "image",
+      "image" : {
+        "url": "assets/icons/noInternet.svg"
+      }
     },
     {
       "label": "scalpel",
@@ -2782,7 +2822,11 @@
         "Description (type 2)": "n/a"
       },
       "color": "rgb(0,189,148)",
-      "size": 3.2545957565307617
+      "size": 3.2545957565307617,
+      "type": "image",
+      "image" : {
+        "url": "assets/icons/pcatt.svg"
+      }
     },
     {
       "label": "imodium",
