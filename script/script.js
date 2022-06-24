@@ -1,3 +1,5 @@
+/**************************  TEXT REVEAL  **************************/
+
 function startAnimation(t) {
   sects[t].classList.remove("active");
   sects[t].classList.add("invisible");
@@ -29,3 +31,9 @@ const el = document.querySelector(".text-wrapper");
 const sects = document.querySelectorAll("section");
 
 el.onwheel = scroll;
+
+/****************************************************/
+
+/**************************  HORIZONTAL BAR  **************************/
+
+/****************************************************/
