@@ -337,7 +337,7 @@
       "size": 1.0
     },
     {
-      "label": "hurricane",
+      "label": "HURRICANE",
       "x": -44.74494934082031,
       "y": -6.53940486907959,
       "id": "5",
@@ -349,7 +349,7 @@
         "Average Price (type 2)": "n/a",
         "Description (type 2)": "n/a"
       },
-      "color": "rgb(0,189,148)",
+      "color": "rgb(220,219,53)",
       "size": 3.999098300933838,
       "type": "image",
       "image" : {
@@ -517,7 +517,7 @@
       "size": 2.8605198860168457
     },
     {
-      "label": "divorce",
+      "label": "DIVORCE",
       "x": 606.6118774414062,
       "y": -12.051582336425781,
       "id": "1",
@@ -529,7 +529,7 @@
         "Average Price (type 2)": "n/a",
         "Description (type 2)": "n/a"
       },
-      "color": "rgb(0,189,148)",
+      "color": "rgb(220,219,53)",
       "size": 3.431361675262451,
       "type": "image",
       "image" : {
@@ -585,7 +585,7 @@
       "size": 1.0
     },
     {
-      "label": "fire",
+      "label": "FIRE",
       "x": 34.567955017089844,
       "y": 75.15164947509766,
       "id": "4",
@@ -597,7 +597,7 @@
         "Average Price (type 2)": "n/a",
         "Description (type 2)": "n/a"
       },
-      "color": "rgb(0,189,148)",
+      "color": "rgb(220,219,53)",
       "size": 4.0,
       "type": "image",
       "image" : {
@@ -1517,7 +1517,7 @@
       "size": 2.8605198860168457
     },
     {
-      "label": "social collapse",
+      "label": "SOCIAL COLLAPSE",
       "x": -101.26839447021484,
       "y": -52.82680130004883,
       "id": "8",
@@ -1529,7 +1529,7 @@
         "Average Price (type 2)": "n/a",
         "Description (type 2)": "n/a"
       },
-      "color": "rgb(0,189,148)",
+      "color": "rgb(220,219,53)",
       "size": 3.998210906982422,
       "type": "image",
       "image" : {
@@ -1745,7 +1745,7 @@
       "size": 2.8605198860168457
     },
     {
-      "label": "epidemics",
+      "label": "EPIDEMICS",
       "x": -3.330829620361328,
       "y": -63.983985900878906,
       "id": "3",
@@ -1757,7 +1757,7 @@
         "Average Price (type 2)": "n/a",
         "Description (type 2)": "n/a"
       },
-      "color": "rgb(0,189,148)",
+      "color": "rgb(220,219,53)",
       "size": 3.995467185974121,
       "type": "image",
       "image" : {
@@ -1845,7 +1845,7 @@
       "size": 2.048596143722534
     },
     {
-      "label": "nuclear war",
+      "label": "NUCLEAR WAR",
       "x": -77.81981658935547,
       "y": -129.9108428955078,
       "id": "7",
@@ -1857,7 +1857,7 @@
         "Average Price (type 2)": "n/a",
         "Description (type 2)": "n/a"
       },
-      "color": "rgb(0,189,148)",
+      "color": "rgb(220,219,53)",
       "size": 3.997648239135742,
       "type": "image",
       "image" : {
@@ -2089,7 +2089,7 @@
       "size": 1.0
     },
     {
-      "label": "earthquake",
+      "label": "EARTHQUAKE",
       "x": -48.77816390991211,
       "y": 66.18885803222656,
       "id": "2",
@@ -2101,7 +2101,7 @@
         "Average Price (type 2)": "n/a",
         "Description (type 2)": "n/a"
       },
-      "color": "rgb(0,189,148)",
+      "color": "rgb(220,219,53)",
       "size": 3.999964714050293,
       "type": "image",
       "image" : {
@@ -2189,7 +2189,7 @@
       "size": 2.048596143722534
     },
     {
-      "label": "vulcanic eruption",
+      "label": "VULCANIC ERUPTION",
       "x": -11.731964111328125,
       "y": 138.41207885742188,
       "id": "10",
@@ -2201,7 +2201,7 @@
         "Average Price (type 2)": "n/a",
         "Description (type 2)": "n/a"
       },
-      "color": "rgb(0,189,148)",
+      "color": "rgb(220,219,53)",
       "size": 4.0,
       "type": "image",
       "image" : {
@@ -2305,7 +2305,7 @@
       "size": 2.466136932373047
     },
     {
-      "label": "unemployment",
+      "label": "UNEMPLOYMENT",
       "x": 327.3515930175781,
       "y": 12.039261817932129,
       "id": "9",
@@ -2317,7 +2317,7 @@
         "Average Price (type 2)": "n/a",
         "Description (type 2)": "n/a"
       },
-      "color": "rgb(0,189,148)",
+      "color": "rgb(220,219,53)",
       "size": 3.559900999069214,
       "type": "image",
       "image" : {
@@ -2629,7 +2629,7 @@
       "size": 2.466136932373047
     },
     {
-      "label": "no internet",
+      "label": "NO INTERNET",
       "x": 201.23440551757812,
       "y": -148.53321838378906,
       "id": "6",
@@ -2641,7 +2641,7 @@
         "Average Price (type 2)": "n/a",
         "Description (type 2)": "n/a"
       },
-      "color": "rgb(0,189,148)",
+      "color": "rgb(220,219,53)",
       "size": 3.9488587379455566,
       "type": "image",
       "image" : {
@@ -2809,7 +2809,7 @@
       "size": 1.0
     },
     {
-      "label": "computer attack",
+      "label": "COMPUTER ATTACK",
       "x": 206.35107421875,
       "y": 180.85589599609375,
       "id": "0",
@@ -2821,7 +2821,7 @@
         "Average Price (type 2)": "n/a",
         "Description (type 2)": "n/a"
       },
-      "color": "rgb(0,189,148)",
+      "color": "rgb(220,219,53)",
       "size": 3.2545957565307617,
       "type": "image",
       "image" : {

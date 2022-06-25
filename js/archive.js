@@ -14,52 +14,16 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const page_type = urlParams.get("selection");
 
-//Popup
-function rC(nam) {
-  var tC = document.cookie.split("; ");
-  for (var i = tC.length - 1; i >= 0; i--) {
-    var x = tC[i].split("=");
-    if (nam == x[0]) return unescape(x[1]);
-  }
-  return "~";
-}
-
-function writeCookie(nam, val) {
-  document.cookie = nam + "=" + escape(val);
-}
-
-function lookupCookie(nam, pg) {
-  var val = rC(nam);
-  if (val.indexOf("~" + pg + "~") != -1) return false;
-  val += pg + "~";
-  writeCookie(nam, val);
-  return true;
-}
-
-function firstTime(cookieName) {
-  return lookupCookie("pWrD4jBo", cookieName);
-}
-
-function thisPage() {
-  var page = location.href.substring(location.href.lastIndexOf("/") + 1);
-  pos = page.indexOf(".");
-  if (pos > -1) {
-    page = page.substr(0, pos);
-  }
-  return page;
-}
-
 let checkClosed = false;
 
 // if(document.cookie == "pWrD4jBo=%7Earchive%7E") animateGraph();
 function resetSide() {
   //reset sidebar
   document.getElementById("nameLabels").textContent =
-    "Select a video or an hashtag to\u00A0get more information";
-  document.getElementById("wrapper-video").classList.add("hide");
+    "Select an item or event to\u00A0get more information";
+  document.getElementById("wrapper-image").classList.add("hide");
   document.getElementById("hashtagsLabel").classList.add("hide");
   document.getElementById("videosNumber").classList.add("hide");
-  document.getElementById("cohashTitle").classList.add("hide");
   document.getElementById("videosDate").classList.add("hide");
 }
 
@@ -83,7 +47,7 @@ init();
 
 function changeEdgeSize() {
   console.log(window.screen.width);
-  if(window.screen.width <= 425) return 0.1;
+  if (window.screen.width <= 425) return 0.1;
   else return 0.3;
 }
 
@@ -91,11 +55,10 @@ function changeEdgeSize() {
 function buildNetwork(s) {
   //Save the initial colors of the nodes and edges
   s.graph.nodes().forEach(function (n) {
-    
     n.originalColor = n.color;
     if (n.attributes.Type == "event") {
       hashList.push(n.label);
-      n.type = "square"
+      n.type = "square";
     }
   });
 
@@ -114,10 +77,10 @@ function buildNetwork(s) {
     maxNodeSize: 15,
     minEdgeSize: changeEdgeSize(),
     maxEdgeSize: changeEdgeSize(),
-    font: "GT America",
+    font: "ibm",
     defaultLabelSize: 16,
-    defaultLabelColor: "#FFF",
-    defaultLabelBGColor: "rgba(0,0,0,0.5)", //opacità per visibiltà video piccoli
+    defaultLabelColor: "#DCDB35",
+    defaultLabelBGColor: "rgba(0,0,0,0.7)", //opacità per visibiltà video piccoli
     defaultHoverLabelBGColor: "white",
     defaultLabelHoverColor: "black",
   });
@@ -141,7 +104,8 @@ function buildNetwork(s) {
 
         flagEvent[0] = false;
         flagEvent[1] = null;
-        moveToHash(ent.innerHTML);
+        console.log(ent.innerHTML);
+        // moveToHash(ent.innerHTML);
       });
 
       ent.addEventListener("mouseover", function () {
@@ -151,7 +115,7 @@ function buildNetwork(s) {
           }
         });
         CustomShapes.init(s);
-  s.refresh();
+        s.refresh();
       });
 
       ent.addEventListener("mouseout", function () {
@@ -161,159 +125,136 @@ function buildNetwork(s) {
           }
         });
         CustomShapes.init(s);
-  s.refresh();
+        s.refresh();
       });
     });
   }
 
-  function moveToHash(_selectedHash) {
-    let selectedHash = _selectedHash;
+  // function moveToHash(_selectedHash) {
+  //   let selectedHash = _selectedHash;
 
-    s.settings({
-      labelThreshold: 12,
-    });
+  //   s.settings({
+  //     labelThreshold: 12,
+  //   });
 
-    //15 dic h 22:15 li ho commentati tanto non cambia nulla —EG
+  //   //15 dic h 22:15 li ho commentati tanto non cambia nulla —EG
 
-    // s.graph.nodes().forEach(function (n) {
-    //   (n.color = n.originalColor), (n.hidden = false);
-    // });
+  //   // s.graph.nodes().forEach(function (n) {
+  //   //   (n.color = n.originalColor), (n.hidden = false);
+  //   // });
 
-    // s.graph.edges().forEach(function (e) {
-    //   (e.color = e.originalColor), (e.hidden = false);
-    // });
+  //   // s.graph.edges().forEach(function (e) {
+  //   //   (e.color = e.originalColor), (e.hidden = false);
+  //   // });
 
-    s.graph.nodes().forEach(function (n) {
-      if (n.attributes.Type == "event" && n.label == selectedHash) {
-        e = n;
-        var nodeId = e.id,
-          toKeep = s.graph.neighbors(nodeId);
-          arrIdNeighs = [],
-          nofNeighs = {};
+  //   s.graph.nodes().forEach(function (n) {
+  //     if (n.attributes.Type == "event" && n.label == selectedHash) {
+  //       e = n;
+  //       var nodeId = e.id,
+  //         toKeep = s.graph.neighbors(nodeId);
+  //       (arrIdNeighs = []), (nofNeighs = {});
 
-        toKeep[nodeId] = e;
-        var keyNames = Object.keys(toKeep); //array degli id dei neighbors
-        // console.log(keyNames);
+  //       toKeep[nodeId] = e;
+  //       var keyNames = Object.keys(toKeep); //array degli id dei neighbors
+  //       // console.log(keyNames);
 
-        // for (k in keyNames) {
-        //   var tempNeighs = s.graph.neighbors(keyNames[k]); //neighbors di nodeId del ciclo
+  //       // for (k in keyNames) {
+  //       //   var tempNeighs = s.graph.neighbors(keyNames[k]); //neighbors di nodeId del ciclo
 
-        //   arrIdNeighs = Object.keys(tempNeighs);
+  //       //   arrIdNeighs = Object.keys(tempNeighs);
 
-        //   for (j in arrIdNeighs) {
-        //     nofNeighs[arrIdNeighs[j]] = arrIdNeighs[j];
-        //   }
+  //       //   for (j in arrIdNeighs) {
+  //       //     nofNeighs[arrIdNeighs[j]] = arrIdNeighs[j];
+  //       //   }
 
-        //   nofNeighs[nodeId] = e;
-        //   toKeep = nofNeighs;
-        // }
+  //       //   nofNeighs[nodeId] = e;
+  //       //   toKeep = nofNeighs;
+  //       // }
 
-        document.getElementById("hashtagsLabel").innerHTML = null;
+  //       document.getElementById("hashtagsLabel").innerHTML = null;
 
-        if (e.attributes.Type == "material") {
-          document.getElementById("nameLabels").textContent =
-            e.attributes.title;
-          document.getElementById("videoPlayer").src = e.attributes.link;
-          document.getElementById("wrapper-video").classList.remove("hide");
-          document.getElementById("videosNumber").textContent =
-            "Number of hashtags: " +
-            Object.keys(s.graph.neighbors(nodeId)).length;
-          document
-            .getElementById("videoPlayer")
-            .setAttribute("poster", e.attributes.thumburl);
+  //       if (e.attributes.Type == "material") {
+  //         document.getElementById("nameLabels").textContent =
+  //           e.attributes.title;
+  //         document.getElementById("videoPlayer").src = e.attributes.link;
+  //         document.getElementById("wrapper-image").classList.remove("hide");
+  //         document.getElementById("videosNumber").textContent =
+  //           "Number of events: " +
+  //           Object.keys(s.graph.neighbors(nodeId)).length;
+  //         document
+  //           .getElementById("videoPlayer")
+  //           .setAttribute("poster", e.attributes.thumburl);
+  //         var dateSpan = document.createElement("li");
+  //         dateSpan.innerHTML = s.graph.neighbors(nodeId).label;
+  //         var li = document.getElementById("hashtagsLabel");
+  //         li.appendChild(dateSpan);
 
-          for (i in s.graph.neighbors(nodeId)) {
-            var dateSpan = document.createElement("li");
-            dateSpan.innerHTML = s.graph.neighbors(nodeId)[i].label;
-            var li = document.getElementById("hashtagsLabel");
-            li.appendChild(dateSpan);
-          }
+  //         createHashList();
 
-          createHashList();
+  //         document.getElementById("hashtagsLabel").classList.remove("hide");
+  //       } else {
+  //         document.getElementById("nameLabels").textContent =
+  //           toKeep[nodeId].label;
+  //         document.getElementById("videoPlayer").src = "";
+  //         document.getElementById("wrapper-image").classList.add("hide");
+  //         document.getElementById("videosNumber").textContent =
+  //           "Number of objects: " +
+  //           Object.keys(s.graph.neighbors(nodeId)).length;
+  //           var dateSpan = document.createElement("li");
+  //           dateSpan.innerHTML = s.graph.neighbors(nodeId).label;
+  //           var li = document.getElementById("hashtagsLabel");
+  //           li.appendChild(dateSpan);
+  //       }
+  //       s.graph.nodes().forEach(function (n) {
+  //         if (toKeep[n.id]) {
+  //           if (toKeep[n.id].id == nodeId) {
+  //             n.color = "#DCDB35";
+  //           } else n.color = n.originalColor;
+  //         } else n.hidden = true;
+  //       });
 
-          document.getElementById("hashtagsLabel").classList.remove("hide");
-          document.getElementById("cohashTitle").classList.add("hide");
-        } else {
-          document.getElementById("nameLabels").textContent =
-            toKeep[nodeId].label;
-          document.getElementById("videoPlayer").src = "";
-          document.getElementById("wrapper-video").classList.add("hide");
-          document.getElementById("videosNumber").textContent =
-            "Number of videos: " +
-            Object.keys(s.graph.neighbors(nodeId)).length;
-          var tempNeighs = [];
-          var uniqueLabels = [];
-          for (k in keyNames) {
-            tempNeighs.push(s.graph.neighbors(keyNames[k])); //neighbors di nodeId del ciclo
+  //       s.graph.edges().forEach(function (e) {
+  //         if (toKeep[e.source] && toKeep[e.target]) e.color = e.originalColor;
+  //         else (e.color = "#eee"), (e.hidden = true);
+  //       });
 
-            $.each(tempNeighs[k], function (i, el) {
-              if (
-                $.inArray(el.label, uniqueLabels) === -1 &&
-                el.label.length > 1 &&
-                el.label != e.label
-              ) {
-                uniqueLabels.push(el.label);
-                var dateSpan = document.createElement("li");
-                dateSpan.innerHTML = el.label;
-                var li = document.getElementById("hashtagsLabel");
-                li.appendChild(dateSpan);
-              }
-            });
-          }
-          document.getElementById("cohashTitle").classList.remove("hide");
-          document.getElementById("cohashTitle").textContent =
-            "Number of cohashtags: " + uniqueLabels.length;
-        }
-        s.graph.nodes().forEach(function (n) {
-          if (toKeep[n.id]) {
-            if (toKeep[n.id].id == nodeId) {
-              n.color = "#DCDB35";
-            } else n.color = n.originalColor;
-          } else n.hidden = true;
-        });
+  //       flagEvent[0] = true;
+  //       flagEvent[1] = nodeId;
 
-        s.graph.edges().forEach(function (e) {
-          if (toKeep[e.source] && toKeep[e.target]) e.color = e.originalColor;
-          else (e.color = "#eee"), (e.hidden = true);
-        });
+  //       let aNode = e;
+  //       let cam = s.camera;
+  //       let pfx = cam.readPrefix;
 
-        flagEvent[0] = true;
-        flagEvent[1] = nodeId;
+  //       if (cam.ratio > 0.7) {
+  //         sigma.utils.zoomTo(
+  //           cam, // cam
+  //           aNode[pfx + "x"] - cam.x, // x
+  //           aNode[pfx + "y"] - cam.y, // y
+  //           0.3, // ratio
+  //           { duration: 1000 } // animation
+  //         );
 
-        let aNode = e;
-        let cam = s.camera;
-        let pfx = cam.readPrefix;
+  //         s.settings({
+  //           labelThreshold: 12,
+  //         });
+  //       } else {
+  //         sigma.misc.animation.camera(
+  //           cam,
+  //           {
+  //             x: aNode[cam.readPrefix + "x"],
+  //             y: aNode[cam.readPrefix + "y"],
+  //             ratio: 0.3,
+  //           },
+  //           { duration: 1000 }
+  //         );
+  //       }
+  //       CustomShapes.init(s);
+  //       s.refresh();
+  //     }
+  //   });
 
-        if (cam.ratio > 0.7) {
-          sigma.utils.zoomTo(
-            cam, // cam
-            aNode[pfx + "x"] - cam.x, // x
-            aNode[pfx + "y"] - cam.y, // y
-            0.3, // ratio
-            { duration: 1000 } // animation
-          );
-
-          s.settings({
-            labelThreshold: 12,
-          });
-        } else {
-          sigma.misc.animation.camera(
-            cam,
-            {
-              x: aNode[cam.readPrefix + "x"],
-              y: aNode[cam.readPrefix + "y"],
-              ratio: 0.3,
-            },
-            { duration: 1000 }
-          );
-        }
-        CustomShapes.init(s);
-  s.refresh();
-      }
-    });
-
-    createHashList();
-  }
+  //   createHashList();
+  // }
 
   //When a node is hovered, check all nodes to see which are neighbors.
   //Set neighbor nodes to dark blue, else keep node as original color.
@@ -340,7 +281,7 @@ function buildNetwork(s) {
 
     //Refresh graph to update colors
     CustomShapes.init(s);
-  s.refresh();
+    s.refresh();
   });
 
   //Return nodes and edges to original color after mose moves off a node (stops hovering)
@@ -356,7 +297,7 @@ function buildNetwork(s) {
 
     //Refresh graph to update colors
     CustomShapes.init(s);
-  s.refresh();
+    s.refresh();
   });
 
   //When a node is clicked, check all nodes to see which are neighbors.
@@ -366,8 +307,8 @@ function buildNetwork(s) {
   //Clicking consecutive nodes will show the joint network all clicked nodes.
 
   document.getElementById("nameLabels").textContent =
-    "Select a video or an hashtag to\u00A0get more information";
-  document.getElementById("wrapper-video").classList.add("hide");
+    "Select an item or event to\u00A0get more information";
+  document.getElementById("wrapper-image").classList.add("hide");
 
   s.bind("clickNode", function (e) {
     s.graph.nodes().forEach(function (n) {
@@ -410,17 +351,15 @@ function buildNetwork(s) {
     document.getElementById("videosDate").classList.remove("hide");
 
     if (e.data.node.attributes.Type == "material") {
-      document.getElementById("videosDate").textContent =
-        e.data.node.attributes.timestamp;
       document.getElementById("nameLabels").textContent =
-        e.data.node.attributes.title;
-      document.getElementById("videoPlayer").src = e.data.node.attributes.link;
-      document.getElementById("wrapper-video").classList.remove("hide");
+        e.data.node.label;
+      // document.getElementById("videoPlayer").src = e.data.node.attributes.link;
+      document.getElementById("wrapper-image").classList.remove("hide");
       document.getElementById("videosNumber").textContent =
-        "Number of hashtags: " + Object.keys(s.graph.neighbors(nodeId)).length;
-      document
-        .getElementById("videoPlayer")
-        .setAttribute("poster", e.data.node.attributes.thumburl);
+        "Number of events: " + Object.keys(s.graph.neighbors(nodeId)).length;
+      // document
+      //   .getElementById("videoPlayer")
+      //   .setAttribute("poster", e.data.node.attributes.thumburl);
       for (i in s.graph.neighbors(nodeId)) {
         var dateSpan = document.createElement("li");
         dateSpan.innerHTML = s.graph.neighbors(nodeId)[i].label;
@@ -428,36 +367,27 @@ function buildNetwork(s) {
         li.appendChild(dateSpan);
       }
       document.getElementById("hashtagsLabel").classList.remove("hide");
-      document.getElementById("cohashTitle").classList.add("hide");
+
+      for (j = 1; j < 15; j++) {
+        console.log("AO");
+        var dateImage = document.createElement("img");
+        dateImage.src =
+          "../assets/data/images/" + e.data.node.label + "/" + j + ".jpg";
+        document.getElementById("wrapper-image").appendChild(dateImage);
+      }
     } else {
       document.getElementById("nameLabels").textContent = toKeep[nodeId].label;
       document.getElementById("videoPlayer").src = "";
-      document.getElementById("wrapper-video").classList.add("hide");
+      document.getElementById("wrapper-image").classList.add("hide");
       document.getElementById("videosNumber").textContent =
-        "Number of videos: " + Object.keys(s.graph.neighbors(nodeId)).length;
-      var tempNeighs = [];
-      var uniqueLabels = [];
-      for (k in keyNames) {
-        tempNeighs.push(s.graph.neighbors(keyNames[k])); //neighbors di nodeId del ciclo
+        "Number of objects: " + Object.keys(s.graph.neighbors(nodeId)).length;
 
-        $.each(tempNeighs[k], function (i, el) {
-          if (
-            $.inArray(el.label, uniqueLabels) === -1 &&
-            el.label.length > 1 &&
-            el.label != e.data.node.label
-          ) {
-            uniqueLabels.push(el.label);
-            var dateSpan = document.createElement("li");
-            dateSpan.innerHTML = el.label;
-            var li = document.getElementById("hashtagsLabel");
-            li.appendChild(dateSpan);
-          }
-        });
+      for (i in s.graph.neighbors(nodeId)) {
+        var dateSpan = document.createElement("li");
+        dateSpan.innerHTML = s.graph.neighbors(nodeId)[i].label;
+        var li = document.getElementById("hashtagsLabel");
+        li.appendChild(dateSpan);
       }
-
-      document.getElementById("cohashTitle").classList.remove("hide");
-      document.getElementById("cohashTitle").textContent =
-        "Number of cohashtags: " + uniqueLabels.length;
     }
 
     //Interactive sidebar
@@ -504,7 +434,7 @@ function buildNetwork(s) {
     }
 
     CustomShapes.init(s);
-  s.refresh();
+    s.refresh();
   });
 
   //When the stage is right-clicked or just clicked, return nodes and edges to original colors
@@ -639,7 +569,7 @@ function animateGraph() {
         defaultLabelBGColor: "rgba(0,0,0,0.5)", //opacità per visibiltà video piccoli
         defaultHoverLabelBGColor: "white",
         defaultLabelHoverColor: "black",
-        animationsTime: 300
+        animationsTime: 300,
       },
     });
 
