@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Opensans";
-  src: url("../assets/font/OpenSans/OpenSans-Regular.ttf") format("truetype");
+  src: url("../assets/font/OpenSans/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
 }
 
 @font-face {
@@ -46,18 +46,25 @@ body {
 section {
   position: absolute;
   width: 100%;
-  transition: opacity 0.3s, transform 1s;
+  transition: opacity 0.7s, transform 1s;
 }
 
 .invisible {
   opacity: 0;
+  transform: scale(1.05);
 }
 
 .active {
+  transform: scale(1);
   opacity: 1;
   /* transform: perspective(1000px) translateZ(-100px);
   transform: translateY(-10px); */
   /* transform: perspective(100%) translate3d(0, -100px, -10px); */
+}
+
+.old {
+  transform: scale(1);
+  opacity: 0;
 }
 
 .text {
@@ -65,8 +72,18 @@ section {
   width: 90%;
   padding-top: 2.5rem;
   padding-left: 2.5rem;
-  font-size: 4rem;
-  line-height: 100px;
+  font-size: 6.875rem;
+  font-stretch: 50%;
+}
+
+.cta-button a {
+  border: 1px solid black;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+  margin-left: 2.5rem;
+  font-family: "ibm";
 }
 
 .bottom {
@@ -143,6 +160,12 @@ nav {
 }
 
 .buttonGui:hover {
+  background-color: #6d6d6d;
+  color: #dcdb35;
+  cursor: pointer;
+}
+
+.buttonGui-active {
   background-color: #6d6d6d;
   color: #dcdb35;
 }
@@ -331,5 +354,106 @@ nav {
 
   #legend ul {
     padding-left: 0;
+  }
+}
+
+
+/******* SCROLL TEXT *******/
+
+.nav-available-wrap {
+  border: solid 1px black;
+  background-color: #dcdb35;
+  display: flex;
+  align-items: center;
+  perspective: 1px;
+  border-collapse: separate;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 54px;
+  width: 100vw;
+}
+
+.nav-available-info {
+  background-color: #6d6d6d;
+  color: #dcdb35;
+  display: flex;
+  align-items: center;
+  perspective: 1px;
+  border-collapse: separate;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 54px;
+  width: 100vw;
+}
+
+.nav-available-wrap:hover {
+  background-color: var(--hard-bg);
+}
+
+.nav-available-copy {
+  display: inline-block;
+  -webkit-animation: marquee 120s linear infinite;
+  animation: marquee 120s linear infinite;
+}
+
+.nav-available-copy:hover {
+  animation-play-state: paused;
+}
+.nav-available-copy:hover > span:nth-child(1) {
+  animation-play-state: paused;
+}
+
+.nav-available-copy > span:nth-child(1) {
+  position: relative;
+  left: 0%;
+  -webkit-animation: swap 120s linear infinite;
+  animation: swap 120s linear infinite;
+}
+
+.nav-avail-item {
+  display: inline-block;
+}
+
+/* +++ ANIMATIONS +++ */
+@-webkit-keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(-100%);
+  }
+}
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(-100%);
+  }
+}
+@-webkit-keyframes swap {
+  0%,
+  50% {
+    left: 0%;
+  }
+  50.01%,
+  100% {
+    left: 100%;
+  }
+}
+@keyframes swap {
+  0%,
+  50% {
+    left: 0%;
+  }
+  50.01%,
+  100% {
+    left: 100%;
   }
 }

@@ -46,7 +46,6 @@ function init() {
 init();
 
 function changeEdgeSize() {
-  console.log(window.screen.width);
   if (window.screen.width <= 425) return 0.1;
   else return 0.3;
 }
@@ -351,8 +350,7 @@ function buildNetwork(s) {
     document.getElementById("videosDate").classList.remove("hide");
 
     if (e.data.node.attributes.Type == "material") {
-      document.getElementById("nameLabels").textContent =
-        e.data.node.label;
+      document.getElementById("nameLabels").textContent = e.data.node.label;
       // document.getElementById("videoPlayer").src = e.data.node.attributes.link;
       document.getElementById("wrapper-image").classList.remove("hide");
       document.getElementById("videosNumber").textContent =
@@ -526,9 +524,22 @@ function buildNetwork(s) {
   CustomShapes.init(s);
   s.refresh();
 
+  var checkInfo = false;
+  const info = document.getElementById("info");
+  const news = document.querySelector(".nav-available-wrap");
+
   //INFO BUTTON
   document.getElementById("info").addEventListener("click", function () {
-    document.querySelector(".lightbox").classList.remove("closed");
+    info.classList.toggle("buttonGui-active");
+    if (checkInfo == false) {
+      console.log("Aooo");
+      news.classList.add("hide");
+      checkInfo = true;
+    }
+    else {
+      news.classList.remove("hide");
+      checkInfo = false;
+    }
   });
 }
 

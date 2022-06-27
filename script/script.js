@@ -2,7 +2,7 @@
 
 function startAnimation(t) {
   sects[t].classList.remove("active");
-  sects[t].classList.add("invisible");
+  sects[t].classList.add("old");
   setTimeout(function () {
     sects[t + 1].classList.remove("invisible");
     sects[t + 1].classList.add("active");
@@ -36,4 +36,3 @@ el.onwheel = scroll;
 
 /**************************  HORIZONTAL BAR  **************************/
 
-/****************************************************/
