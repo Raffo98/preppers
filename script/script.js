@@ -6,14 +6,14 @@ function startAnimation(t) {
   setTimeout(function () {
     sects[t + 1].classList.remove("invisible");
     sects[t + 1].classList.add("active");
-  }, 2000);
+  }, 1000);
 }
 
 async function scroll(e) {
   e.preventDefault();
   scrolled += e.deltaY;
   console.log(scrolled);
-  if (scrolled > 4000) {
+  if (scrolled > 2000) {
     scrolled = 0;
     for (i = 0; i < sects.length; i++) {
       console.log(sects[i].classList);
@@ -21,7 +21,7 @@ async function scroll(e) {
         revealed = i;
       }
     }
-    setTimeout(await startAnimation(revealed), 1000);
+    setTimeout(await startAnimation(revealed), 500);
   }
 }
 
