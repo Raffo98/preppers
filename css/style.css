@@ -89,6 +89,8 @@ section {
 .bottom {
   position: absolute;
   bottom: 0;
+  opacity: 1;
+  transition: opacity 0.5s;
   width: 100%;
   height: 27px;
   display: flex;
@@ -398,8 +400,8 @@ nav {
 
 .nav-available-copy {
   display: inline-block;
-  -webkit-animation: marquee 120s linear infinite;
-  animation: marquee 120s linear infinite;
+  -webkit-animation: marquee 200s linear infinite;
+  animation: marquee 200s linear infinite;
 }
 
 .nav-available-copy:hover {
@@ -412,8 +414,8 @@ nav {
 .nav-available-copy > span:nth-child(1) {
   position: relative;
   left: 0%;
-  -webkit-animation: swap 120s linear infinite;
-  animation: swap 120s linear infinite;
+  -webkit-animation: swap 200s linear infinite;
+  animation: swap 200s linear infinite;
 }
 
 .nav-avail-item {

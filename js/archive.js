@@ -8,6 +8,7 @@ document.getElementById("network-graph").oncontextmenu = function (e) {
 
 let hashList = [];
 let step = 0;
+let checkImages = false;
 
 //URL parsing variable for the singlePage redirection
 const queryString = window.location.search;
@@ -366,12 +367,25 @@ function buildNetwork(s) {
       }
       document.getElementById("hashtagsLabel").classList.remove("hide");
 
-      for (j = 1; j < 15; j++) {
-        console.log("AO");
-        var dateImage = document.createElement("img");
-        dateImage.src =
-          "../assets/data/images/" + e.data.node.label + "/" + j + ".jpg";
-        document.getElementById("wrapper-image").appendChild(dateImage);
+      if (checkImages) {
+        console.log("false");
+        let imagesArray = document.querySelectorAll(".image");
+        console.log(imagesArray);
+        for (k = 1; k < 15; k++) {
+          imagesArray[k - 1].src =
+            "../assets/data/images/" + e.data.node.label + "/" + k + ".jpg";
+        }
+      } else {
+        for (j = 1; j < 15; j++) {
+        console.log("true");
+
+          var dateImage = document.createElement("img");
+          dateImage.className = "image";
+          dateImage.src =
+            "../assets/data/images/" + e.data.node.label + "/" + j + ".jpg";
+          document.getElementById("wrapper-image").appendChild(dateImage);
+        }
+        checkImages = true;
       }
     } else {
       document.getElementById("nameLabels").textContent = toKeep[nodeId].label;
@@ -535,8 +549,7 @@ function buildNetwork(s) {
       console.log("Aooo");
       news.classList.add("hide");
       checkInfo = true;
-    }
-    else {
+    } else {
       news.classList.remove("hide");
       checkInfo = false;
     }

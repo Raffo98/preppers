@@ -19,9 +19,14 @@ async function scroll(e) {
       console.log(sects[i].classList);
       if (sects[i].classList.contains("active")) {
         revealed = i;
+        if (i == sects.length - 1) {
+          document.querySelector(".bottom").style.opacity = "0";
+        }
       }
     }
-    setTimeout(await startAnimation(revealed), 500);
+    if (revealed < sects.length - 1) {
+      setTimeout(await startAnimation(revealed), 500);
+    }
   }
 }
 
@@ -35,4 +40,3 @@ el.onwheel = scroll;
 /****************************************************/
 
 /**************************  HORIZONTAL BAR  **************************/
-
