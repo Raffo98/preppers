@@ -348,20 +348,27 @@ function buildNetwork(s) {
     document.getElementById("hashtagsLabel").innerHTML = null;
     document.getElementById("hashtagsLabel").classList.remove("hide");
     document.getElementById("videosNumber").classList.remove("hide");
-    document.getElementById("videosDate").classList.remove("hide");
 
     if (e.data.node.attributes.Type == "material") {
-      document.getElementById("description").classList.remove("hide");
       document.getElementById("nameLabels").textContent = e.data.node.label;
       // document.getElementById("videoPlayer").src = e.data.node.attributes.link;
       document.getElementById("wrapper-image").classList.remove("hide");
       document.getElementById("videosNumber").textContent =
         "Number of events: " + Object.keys(s.graph.neighbors(nodeId)).length;
-      if (e.data.node.attributes.avgPrice != "n/a" || e.data.node.attributes.avgPrice != "null") {
+      if (
+        e.data.node.attributes.avgPrice != "n/a" &&
+        e.data.node.attributes.avgPrice != "null"
+      ) {
+        document.getElementById("videosDate").classList.remove("hide");
         document.getElementById("videosDate").innerHTML =
           e.data.node.attributes.avgPrice;
       }
-      if (e.data.node.attributes.description != "n/a" || e.data.node.attributes.description != "null") {
+      if (
+        e.data.node.attributes.description != "n/a" &&
+        e.data.node.attributes.description != "null"
+      ) {
+        document.getElementById("description").classList.remove("hide");
+
         document.getElementById("description").innerHTML =
           e.data.node.attributes.description;
       }
@@ -398,7 +405,7 @@ function buildNetwork(s) {
       }
     } else {
       document.getElementById("nameLabels").textContent = toKeep[nodeId].label;
-      document.getElementById("videoPlayer").src = "";
+      // document.getElementById("videoPlayer").src = "";
       document.getElementById("wrapper-image").classList.add("hide");
       document.getElementById("videosNumber").textContent =
         "Number of objects: " + Object.keys(s.graph.neighbors(nodeId)).length;
