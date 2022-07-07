@@ -26,6 +26,7 @@ function resetSide() {
   document.getElementById("hashtagsLabel").classList.add("hide");
   document.getElementById("videosNumber").classList.add("hide");
   document.getElementById("videosDate").classList.add("hide");
+  document.getElementById("description").classList.add("hide");
 }
 
 resetSide();
@@ -345,17 +346,25 @@ function buildNetwork(s) {
     s.camera.goTo(e.data.node.x, e.data.node.y);
 
     document.getElementById("hashtagsLabel").innerHTML = null;
-    document.getElementById("videosDate").innerHTML = null;
     document.getElementById("hashtagsLabel").classList.remove("hide");
     document.getElementById("videosNumber").classList.remove("hide");
     document.getElementById("videosDate").classList.remove("hide");
 
     if (e.data.node.attributes.Type == "material") {
+      document.getElementById("description").classList.remove("hide");
       document.getElementById("nameLabels").textContent = e.data.node.label;
       // document.getElementById("videoPlayer").src = e.data.node.attributes.link;
       document.getElementById("wrapper-image").classList.remove("hide");
       document.getElementById("videosNumber").textContent =
         "Number of events: " + Object.keys(s.graph.neighbors(nodeId)).length;
+      if (e.data.node.attributes.avgPrice != null) {
+        document.getElementById("videosDate").innerHTML =
+          e.data.node.attributes.avgPrice;
+      }
+      if (e.data.node.attributes.description != null) {
+        document.getElementById("description").innerHTML =
+          e.data.node.attributes.description;
+      }
       // document
       //   .getElementById("videoPlayer")
       //   .setAttribute("poster", e.data.node.attributes.thumburl);
@@ -377,7 +386,7 @@ function buildNetwork(s) {
         }
       } else {
         for (j = 1; j < 15; j++) {
-        console.log("true");
+          console.log("true");
 
           var dateImage = document.createElement("img");
           dateImage.className = "image";
