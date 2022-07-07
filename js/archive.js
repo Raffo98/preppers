@@ -357,11 +357,11 @@ function buildNetwork(s) {
       document.getElementById("wrapper-image").classList.remove("hide");
       document.getElementById("videosNumber").textContent =
         "Number of events: " + Object.keys(s.graph.neighbors(nodeId)).length;
-      if (e.data.node.attributes.avgPrice != null) {
+      if (e.data.node.attributes.avgPrice != "n/a" || e.data.node.attributes.avgPrice != "null") {
         document.getElementById("videosDate").innerHTML =
           e.data.node.attributes.avgPrice;
       }
-      if (e.data.node.attributes.description != null) {
+      if (e.data.node.attributes.description != "n/a" || e.data.node.attributes.description != "null") {
         document.getElementById("description").innerHTML =
           e.data.node.attributes.description;
       }
