@@ -6,6 +6,22 @@ document.getElementById("network-graph").oncontextmenu = function (e) {
   e.preventDefault();
 };
 
+/**************************  ABOUT  **************************/
+
+const about = document.getElementById("about");
+const aboutPage = document.getElementById("aboutPage");
+let showAbout = false;
+
+about.addEventListener("click", function () {
+  if (showAbout) {
+    aboutPage.classList.add("hide");
+    showAbout = false;
+  } else {
+    aboutPage.classList.remove("hide");
+    showAbout = true;
+  }
+});
+
 let hashList = [];
 let step = 0;
 let checkImages = false;
@@ -407,6 +423,7 @@ function buildNetwork(s) {
       document.getElementById("nameLabels").textContent = toKeep[nodeId].label;
       // document.getElementById("videoPlayer").src = "";
       document.getElementById("wrapper-image").classList.add("hide");
+      document.getElementById("description").classList.add("hide");
       document.getElementById("videosNumber").textContent =
         "Number of objects: " + Object.keys(s.graph.neighbors(nodeId)).length;
 

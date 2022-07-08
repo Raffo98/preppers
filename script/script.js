@@ -39,4 +39,18 @@ el.onwheel = scroll;
 
 /****************************************************/
 
-/**************************  HORIZONTAL BAR  **************************/
+/**************************  ABOUT  **************************/
+
+const about = document.getElementById("about");
+const aboutPage = document.getElementById("aboutPage");
+let showAbout = false;
+
+about.addEventListener("click", function () {
+  if (showAbout) {
+    aboutPage.classList.add("hide");
+    showAbout = false;
+  } else {
+    aboutPage.classList.remove("hide");
+    showAbout = true;
+  }
+});
